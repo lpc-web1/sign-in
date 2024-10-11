@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const preEmail = document.getElementById("identifierId");
     const email = preEmail.value + "@laspositascollege.edu"
     const password = document.getElementById("identifierPassword");
-    email.addEventListener('keypress', (e)=>{
+    preEmail.addEventListener('keypress', (e)=>{
         if(e.target.keycode === 13){
             e.preventDefault();
         }
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     nextBtn.addEventListener('click', (e)=>{
         e.preventDefault();
         //console.log(validateEmail(email.value))
-        if(validateEmail(email.value)){
+        if(validateEmail(email)){
             passDisplay.style.display = 'block';
             emailDisplay.style.display = 'none';
             backDiv.style.display = 'block';
