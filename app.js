@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const nextDiv = document.getElementById('nextDiv');
     // Get email and password values
     const preEmail = document.getElementById("identifierId");
-    const email = preEmail.value + "@laspositascollege.edu"
+    var email;
     const password = document.getElementById("identifierPassword");
     preEmail.addEventListener('keypress', (e)=>{
         if(e.target.keycode === 13){
@@ -20,15 +20,17 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     nextBtn.addEventListener('click', (e)=>{
         e.preventDefault();
+        email = preEmail.value + "@laspositascollege.edu"
         //console.log(validateEmail(email.value))
-        if(validateEmail(email)){
-            passDisplay.style.display = 'block';
-            emailDisplay.style.display = 'none';
-            backDiv.style.display = 'block';
-            submitDiv.style.display = 'block';
-            ceateDiv.style.display = 'none';
-            nextDiv.style.display = 'none';
-        
+        if(preEmail !== ''){
+            if(validateEmail(email)){
+                passDisplay.style.display = 'block';
+                emailDisplay.style.display = 'none';
+                backDiv.style.display = 'block';
+                submitDiv.style.display = 'block';
+                ceateDiv.style.display = 'none';
+                nextDiv.style.display = 'none';
+            }
         }else{
             alert('Invalid email')
         };
@@ -50,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
     loginForm.addEventListener("submit", function(event){
         // Prevent the default form submission
         event.preventDefault();
-        
         if(password.value != ''){
              //Send Login detail to admin for notification
              const userData = {
